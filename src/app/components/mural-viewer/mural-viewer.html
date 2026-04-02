@@ -1,0 +1,77 @@
+<div class="relative w-full h-full bg-gray-900 overflow-hidden shadow-inner">
+
+  <div #viewerContainer class="w-full h-full"></div>
+
+  <div class="absolute top-4 left-4 z-10 pointer-events-none">
+    <span
+      class="bg-black/40 text-white/90 px-3 py-1.5 rounded-full text-xs font-medium backdrop-blur-md border border-white/10 shadow-lg flex items-center gap-2">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+        </path>
+      </svg>
+      Vista 360° Interactiva (Arrastra para mover)
+    </span>
+  </div>
+
+  <div
+    class="absolute inset-0 z-[950] flex flex-col items-center justify-center bg-gray-900/95 backdrop-blur-md transition-opacity duration-700 ease-in-out"
+    [class.opacity-0]="!cargandoMural" [class.pointer-events-none]="!cargandoMural" [class.opacity-100]="cargandoMural"
+    [class.pointer-events-auto]="cargandoMural">
+
+    <div class="relative flex items-center justify-center mb-6">
+      <div class="w-16 h-16 border-4 border-transparent border-t-blue-500 border-r-blue-500 rounded-full animate-spin">
+      </div>
+      <div
+        class="absolute w-10 h-10 border-4 border-transparent border-b-amber-500 border-l-amber-500 rounded-full animate-[spin_1.5s_reverse_infinite]">
+      </div>
+      <div class="absolute text-white/50">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z">
+          </path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+          </path>
+        </svg>
+      </div>
+    </div>
+
+    <h3 class="text-white text-lg font-bold tracking-widest uppercase animate-pulse">Generando Inmersión</h3>
+    <p class="text-blue-400 text-xs mt-2 font-medium">Cargando texturas de alta resolución...</p>
+  </div>
+
+  @if (modalVisible) {
+  <div
+    class="absolute inset-0 z-[1000] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm transition-opacity duration-300">
+
+    <div
+      class="bg-gray-900/95 border border-white/20 rounded-2xl p-6 max-w-sm w-full shadow-2xl relative animate-[fadeIn_0.3s_ease-out]">
+
+      <button (click)="cerrarModal()"
+        class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors bg-white/5 p-1 rounded-full hover:bg-white/10">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <div class="pr-6">
+        <h3 class="text-white text-xl font-bold mb-2 tracking-wide">{{ hotspotActual?.titulo }}</h3>
+        <div class="w-12 h-1 bg-blue-500 mb-4 rounded-full"></div>
+
+        <p class="text-gray-300 text-sm leading-relaxed mb-4">
+          {{ hotspotActual?.descripcion }}
+        </p>
+
+        @if (hotspotActual?.imagenDetalle) {
+        <div class="mt-4 rounded-lg overflow-hidden shadow-inner border border-white/10">
+          <img [src]="hotspotActual.imagenDetalle" alt="Detalle del mural"
+            class="w-full h-40 object-cover hover:scale-105 transition-transform duration-500">
+        </div>
+        }
+      </div>
+
+    </div>
+  </div>
+  }
+
+</div>

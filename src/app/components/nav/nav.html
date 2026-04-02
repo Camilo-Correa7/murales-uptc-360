@@ -1,0 +1,71 @@
+<nav class="fixed top-0 left-0 w-full z-[1000] px-4 md:px-8 py-4 md:py-6 pointer-events-none backdrop-blur-md">
+    <div class="pointer-events-auto flex items-center justify-between w-full max-w-7xl mx-auto relative">
+
+        <div class="flex-1 flex items-center justify-start cursor-pointer shrink-0">
+            <h1 class="text-xl md:text-2xl font-normal tracking-wide text-white drop-shadow-md">Murales UPTC</h1>
+        </div>
+
+        <div
+            class="hidden md:flex shrink-0 items-center justify-center gap-6 px-8 py-3 bg-black/80 border border-white/10 rounded-full shadow-lg">
+            <a href="#" (click)="clicInicio($event)"
+                class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Inicio</a>
+            <a href="#" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Evaluación</a>
+            <a href="#" (click)="clicVerCreditos($event)"
+                class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Créditos</a>
+        </div>
+
+        <div class="flex-1 flex items-center justify-end gap-4 shrink-0">
+
+            @if (mostrarBotonGaleria) {
+            <a href="#" (click)="clicVerGaleria($event)"
+                class="hidden md:flex items-center gap-2 px-8 py-2.5 bg-black/30 backdrop-blur-md hover:bg-white/20 border border-white/20 rounded-full text-sm font-medium text-white transition-all shadow-lg">
+                Ver Galería
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                    </path>
+                </svg>
+            </a>
+            }
+
+            <button (click)="toggleMenu()"
+                class="md:hidden flex items-center justify-center w-10 h-10 bg-black/40 backdrop-blur-md border border-white/10 rounded-full text-white hover:bg-white/20 transition-all focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    @if (!isMenuOpen) {
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                    }
+                    @else {
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                    }
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    @if (isMenuOpen) {
+    <div
+        class="pointer-events-auto absolute top-[80px] left-4 right-4 bg-black/90 backdrop-blur-xl border border-white/10 rounded-2xl p-4 md:hidden flex flex-col gap-2 shadow-2xl animate-[fadeIn_0.2s_ease-out]">
+
+        <a href="#" (click)="clicInicio($event); cerrarMenu()"
+            class="text-white text-base font-medium p-3 rounded-xl hover:bg-white/10 transition-colors">Inicio</a>
+        <a href="#" (click)="cerrarMenu()"
+            class="text-white text-base font-medium p-3 rounded-xl hover:bg-white/10 transition-colors">Evaluación</a>
+        <a href="#" (click)="clicVerCreditos($event); cerrarMenu()"
+            class="text-white text-base font-medium p-3 rounded-xl hover:bg-white/10 transition-colors">Créditos</a>
+
+        @if (mostrarBotonGaleria) {
+        <div class="border-t border-white/10 pt-4 mt-2">
+            <a href="#" (click)="clicVerGaleria($event); cerrarMenu()"
+                class="flex items-center justify-center gap-2 w-full px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-sm font-medium text-white transition-all">
+                Ver Galería
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                    </path>
+                </svg>
+            </a>
+        </div>
+        }
+    </div>
+    }
+</nav>
