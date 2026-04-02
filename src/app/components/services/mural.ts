@@ -14,7 +14,7 @@ export class Mural {
       tecnica: 'Pintura acrílica sobre muro',
       ubicacion: 'Puerta fachada posterior del edificio central UPTC - Tunja',
       descripcion: 'El mural representa a una joven sentada, con vestimenta deportiva, en una posición quieta y reflexiva, rodeada de cajas o marcos superpuestos. El fondo está dominado por tonos fríos (azules y grises) que generan una atmósfera introspectiva y algo melancólica. En la parte inferior izquierda aparece una escena secundaria con dos figuras femeninas, envueltas en colores más intensos, acompañadas de humo o elementos simbólicos.',
-      imagen360Url: 'Murales/1.jpg',
+      imagen360Url: 'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1775149918/1_khhkr2.jpg',
     },
     {
       id: 2,
@@ -34,7 +34,7 @@ export class Mural {
       tecnica:'Pintura acrílica sobre muro',
       ubicacion:'Fachada posterior del edificio central, muro exterior UPTC - Tunja',
       descripcion:'El mural presenta la figura de un joven sentado, con el cuerpo recogido y los brazos rodeando las piernas, en una postura que transmite introspección y vulnerabilidad. El entorno aparece de manera difusa y fragmentada, con elementos que sugieren un espacio interior doméstico o simbólico. La paleta de colores terrosos y apagados refuerza una atmósfera de silencio y reflexión. La obra enfatiza la expresión facial del personaje, destacando una mirada pensativa que invita al espectador a reflexionar sobre los estados emocionales y los procesos internos de la juventud.',
-      imagen360Url:'Murales/3.jpg',
+      imagen360Url:'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1775149905/3_gysfja.jpg',
       
     },
      {
@@ -45,7 +45,7 @@ export class Mural {
       tecnica:'Pintura acrílica sobre muro',
       ubicacion:'Fachada posterior del edificio central, muro exterior UPTC - Tunja',
       descripcion:'El mural presenta una figura humana de apariencia infantil o juvenil, situada al lado de una figura animal de gran tamaño, similar a un lobo o criatura simbólica. El animal se representa en color negro, con ojos blancos vacíos y una boca abierta mostrando dientes exagerados. El fondo está compuesto por patrones orgánicos que recuerdan hojas o formas naturales, generando un contraste entre lo humano, lo animal y el entorno.',
-      imagen360Url:'Murales/4.jpg',
+      imagen360Url:'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1775149905/4_y5hzos.jpg',
     },
      {
       id: 5,
@@ -55,7 +55,7 @@ export class Mural {
       tecnica:'Pintura acrílica sobre muro',
       ubicacion:'Fachada posterior del edificio central, muro exterior UPTC - Tunja',
       descripcion:'El mural representa a una persona joven durmiendo sobre una cama, envuelta en cobijas de colores. A su lado se observa un teléfono móvil que vibra, mostrando una alarma con el texto “CLASE 7:00 AM”. El dispositivo emite ondas visuales que indican sonido o vibración. La escena se desarrolla en un ambiente íntimo y cotidiano, con énfasis en el descanso interrumpido',
-      imagen360Url:'Murales/5.jpg',
+      imagen360Url:'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1775149913/5_wxk6ba.jpg',
     },
      {
       id: 6,
@@ -65,7 +65,7 @@ export class Mural {
       tecnica:'Pintura acrílica sobre muro, estilo abstracto-figurativo',
       ubicacion:'Fachada posterior del edificio central, muro exterior UPTC - Tunja',
       descripcion:'El mural presenta una composición abstracta con figuras humanoides de aspecto mecánico o robótico, conectadas entre sí mediante líneas, cables y formas geométricas. Se integran elementos como papeles, dispositivos, símbolos y estructuras que evocan sistemas, procesos y circulación de información. La obra utiliza colores planos y contrastantes, predominando tonos azules, verdes, rojos y blancos.',
-      imagen360Url:'Murales/6.jpg',
+      imagen360Url:'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1775149906/6_r7hgno.jpg',
     },
      {
       id: 7,
@@ -75,7 +75,7 @@ export class Mural {
       tecnica:'Pintura acrílica sobre muro',
       ubicacion:'Lateral del edificio central, frente al edificio Administrativo',
       descripcion:'El mural representa dos rostros masculinos de perfil, enfrentados y en contacto directo a través de un beso. Ambos personajes llevan gafas oscuras que cubren sus ojos, lo que desplaza la atención del acto visual hacia el gesto íntimo y emocional. Las figuras están tratadas con pinceladas expresivas y colores cálidos, principalmente tonos rosados, beige y ocres, que contrastan con un fondo oscuro. La composición enfatiza la cercanía, la piel y el contacto, generando una sensación de intimidad y quietud',
-      imagen360Url:'',
+      imagen360Url:'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1775149906/12_viv6jb.jpg',
     },
      {
       id: 8,
@@ -85,7 +85,7 @@ export class Mural {
       tecnica:'',
       ubicacion:'',
       descripcion:'',
-      imagen360Url:'',
+      imagen360Url:'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1775149907/11_g5vjfs.jpg',
     },
      {
       id: 9,
@@ -95,7 +95,7 @@ export class Mural {
       tecnica:'',
       ubicacion:'',
       descripcion:'',
-      imagen360Url:'',
+      imagen360Url:'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1775149905/7_fwnhzs.jpg',
     },
     {
       id: 10,
@@ -105,7 +105,7 @@ export class Mural {
       tecnica:'',
       ubicacion:'',
       descripcion:'',
-      imagen360Url:'',
+      imagen360Url:'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1775149905/8_oqwjwm.jpg',
     },
     {
       id: 11,
@@ -115,7 +115,7 @@ export class Mural {
       tecnica:'',
       ubicacion:'',
       descripcion:'',
-      imagen360Url:'',
+      imagen360Url:'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1775149908/9_lgzbg2.jpg',
     },
     {
       id: 12,
@@ -125,7 +125,7 @@ export class Mural {
       tecnica:'',
       ubicacion:'',
       descripcion:'',
-      imagen360Url:'',
+      imagen360Url:'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1775149913/10_s5jdsb.jpg',
     },
     {
       id: 13,
@@ -135,7 +135,7 @@ export class Mural {
       tecnica:'',
       ubicacion:'',
       descripcion:'',
-      imagen360Url:'',
+      imagen360Url:'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1775149907/15_wmd61f.jpg',
     },
     {
       id: 14,
@@ -145,7 +145,7 @@ export class Mural {
       tecnica:'',
       ubicacion:'',
       descripcion:'',
-      imagen360Url:'',
+      imagen360Url:'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1775149908/16_yzcrnv.jpg',
     },
     {
       id: 15,
@@ -155,7 +155,7 @@ export class Mural {
       tecnica:'',
       ubicacion:'',
       descripcion:'',
-      imagen360Url:'',
+      imagen360Url:'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1775149906/14_n6gwns.jpg',
     },
     {
       id: 16,
@@ -165,7 +165,7 @@ export class Mural {
       tecnica:'',
       ubicacion:'',
       descripcion:'',
-      imagen360Url:'',
+      imagen360Url:'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1775149908/13_mp2hxb.jpg',
     },
   ];
 
