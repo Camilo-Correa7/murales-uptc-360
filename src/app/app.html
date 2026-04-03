@@ -7,14 +7,14 @@
 
 @if (mostrarLanding) {
 
-<div class="absolute inset-0 w-full h-full z-[60] flex items-center justify-center animate-fade-in overflow-hidden">
+<div class="relative w-full min-h-[100dvh] md:h-screen z-[60] flex flex-col items-center justify-center animate-fade-in overflow-y-auto overflow-x-hidden md:overflow-hidden py-24 md:py-0">
 
     <img src="uptc.jpg" alt="Sede UPTC"
         class="absolute inset-0 w-full h-full object-cover opacity-50 scale-105 animate-slow-zoom">
 
     <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
 
-    <div class="relative z-50 text-center px-6 max-w-4xl mt-16">
+    <div class="relative z-50 text-center px-4 sm:px-6 max-w-4xl flex flex-col items-center justify-center w-full">
         <p class="text-yellow-500 font-bold tracking-[0.2em] uppercase text-sm mb-4">
             Patrimonio Cultural
         </p>
@@ -27,7 +27,7 @@
             Explora los murales de la Universidad Pedagógica y Tecnológica de Colombia en una experiencia inmersiva
             360°. Descubre las historias, técnicas y autores detrás de cada obra. <br>
         </p>
-        <p class="mb-4 text-lg text-gray-200 w-full max-w-4xl px-4 font-light">“El desarrollo de competencias clave fomenta la creatividad, la expresión cultural y la comprensión del entorno, permitiendo a las personas interactuar con el arte y la sociedad de manera significativa.” <br>
+        <p class="mb-10 text-lg text-gray-200 w-full max-w-4xl px-4 font-light">“El desarrollo de competencias clave fomenta la creatividad, la expresión cultural y la comprensión del entorno, permitiendo a las personas interactuar con el arte y la sociedad de manera significativa.” <br>
             <span class="font-medium mt-2 block text-gray-300">European Education Area (Comisión Europea)</span> 
         </p>
         <button (click)="iniciarRecorrido()"
