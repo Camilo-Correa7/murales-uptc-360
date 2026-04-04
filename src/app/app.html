@@ -7,31 +7,31 @@
 
 @if (mostrarLanding) {
 
-<div class="relative w-full min-h-[100dvh] md:h-screen z-[60] flex flex-col items-center justify-center animate-fade-in overflow-y-auto overflow-x-hidden md:overflow-hidden py-24 md:py-0">
+<div class="relative w-full min-h-[100dvh] md:h-screen z-[60] flex flex-col items-center justify-center animate-fade-in overflow-y-auto overflow-x-hidden md:overflow-hidden pt-28 pb-32 md:py-0">
 
     <img src="uptc.jpg" alt="Sede UPTC"
         class="absolute inset-0 w-full h-full object-cover opacity-50 scale-105 animate-slow-zoom">
 
     <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
 
-    <div class="relative z-50 text-center px-4 sm:px-6 max-w-4xl flex flex-col items-center justify-center w-full">
+    <div class="relative z-50 text-center px-4 sm:px-6 max-w-4xl flex flex-col items-center justify-center w-full md:mt-16">
         <p class="text-yellow-500 font-bold tracking-[0.2em] uppercase text-sm mb-4">
             Patrimonio Cultural
         </p>
-        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-white drop-shadow-lg">
+        <h1 class="text-4xl md:text-7xl font-extrabold mb-6 tracking-tight text-white drop-shadow-lg">
             Una Ventana al <br>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Arte
                 Universitario</span>
         </h1>
-        <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
+        <p class="text-lg md:text-xl text-gray-200 mb-8 md:mb-10 max-w-2xl mx-auto font-light">
             Explora los murales de la Universidad Pedagógica y Tecnológica de Colombia en una experiencia inmersiva
             360°. Descubre las historias, técnicas y autores detrás de cada obra. <br>
         </p>
-        <p class="mb-10 text-lg text-gray-200 w-full max-w-4xl px-4 font-light">“El desarrollo de competencias clave fomenta la creatividad, la expresión cultural y la comprensión del entorno, permitiendo a las personas interactuar con el arte y la sociedad de manera significativa.” <br>
+        <p class="mb-8 md:mb-6 text-lg text-gray-200 w-full max-w-4xl px-4 font-light">“El desarrollo de competencias clave fomenta la creatividad, la expresión cultural y la comprensión del entorno, permitiendo a las personas interactuar con el arte y la sociedad de manera significativa.” <br>
             <span class="font-medium mt-2 block text-gray-300">European Education Area (Comisión Europea)</span> 
         </p>
         <button (click)="iniciarRecorrido()"
-            class="group relative inline-flex items-center justify-center px-8 py-4 text-base font-bold text-black bg-white rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] focus:outline-none">
+            class="hidden md:inline-flex group relative items-center justify-center px-8 py-4 text-base font-bold text-black bg-white rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] focus:outline-none">
             <span class="relative z-10 flex items-center gap-2">
                 Comenzar Exploración
                 <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor"
@@ -42,6 +42,17 @@
             </span>
         </button>
     </div>
+</div>
+<div class="fixed md:hidden bottom-0 left-0 w-full p-4 z-[1001] pointer-events-auto">
+    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black via-black/95 to-transparent pointer-events-none"></div>
+
+    <button (click)="iniciarRecorrido()"
+        class="relative w-full py-4 text-base font-bold text-black bg-white rounded-full overflow-hidden shadow-[0_4px_30px_rgba(255,255,255,0.4)] focus:outline-none flex items-center justify-center gap-2 transition-transform active:scale-95">
+            Comenzar Exploración
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+    </button>
 </div>
 
 } @else {
