@@ -7,14 +7,16 @@
 
 @if (mostrarLanding) {
 
-<div class="relative w-full min-h-[100dvh] md:h-screen z-[60] flex flex-col items-center justify-center animate-fade-in overflow-y-auto overflow-x-hidden md:overflow-hidden pt-28 pb-32 md:py-0">
+<div
+    class="relative w-full min-h-[100dvh] md:h-screen z-[60] flex flex-col items-center justify-center animate-fade-in overflow-y-auto overflow-x-hidden md:overflow-hidden pt-28 pb-32 md:py-0">
 
     <img src="uptc.jpg" alt="Sede UPTC"
         class="absolute inset-0 w-full h-full object-cover opacity-50 scale-105 animate-slow-zoom">
 
     <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
 
-    <div class="relative z-50 text-center px-4 sm:px-6 max-w-4xl flex flex-col items-center justify-center w-full md:mt-16">
+    <div
+        class="relative z-50 text-center px-4 sm:px-6 max-w-4xl flex flex-col items-center justify-center w-full md:mt-16">
         <p class="text-yellow-500 font-bold tracking-[0.2em] uppercase text-sm mb-4">
             Patrimonio Cultural
         </p>
@@ -27,8 +29,26 @@
             Explora los murales de la Universidad Pedagógica y Tecnológica de Colombia en una experiencia inmersiva
             360°. Descubre las historias, técnicas y autores detrás de cada obra. <br>
         </p>
-        <p class="mb-8 md:mb-6 text-lg text-gray-200 w-full max-w-4xl px-4 font-light">“El desarrollo de competencias clave fomenta la creatividad, la expresión cultural y la comprensión del entorno, permitiendo a las personas interactuar con el arte y la sociedad de manera significativa.” <br>
-            <span class="font-medium mt-2 block text-gray-300">European Education Area (Comisión Europea)</span> 
+        <p class="mb-8 md:mb-6 text-lg text-gray-200 w-full max-w-4xl px-4 font-light">
+            “El desarrollo de competencias clave fomenta la creatividad, la expresión cultural y la comprensión del
+            entorno, permitiendo a las personas interactuar con el arte y la sociedad de manera significativa.”
+
+            <span class="mt-4 flex flex-wrap items-center justify-center gap-3">
+                <span class="font-medium text-gray-300">
+                    European Education Area, Comisión Europea (21 de agosto de 2025)
+                </span>
+
+                <a href="https://education.ec.europa.eu/es/focus-topics/improving-quality/key-competences"
+                    target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1 px-3 py-1 text-sm font-medium text-white bg-white/10 hover:bg-white/20 border border-white/20 rounded-full transition-colors backdrop-blur-sm"
+                    title="Ir a la fuente original">
+                    <span>Ver fuente</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                </a>
+            </span>
         </p>
         <button (click)="iniciarRecorrido()"
             class="hidden md:inline-flex group relative items-center justify-center px-8 py-4 text-base font-bold text-black bg-white rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] focus:outline-none">
@@ -44,14 +64,16 @@
     </div>
 </div>
 <div class="fixed md:hidden bottom-0 left-0 w-full p-4 z-[1001] pointer-events-auto">
-    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black via-black/95 to-transparent pointer-events-none"></div>
+    <div
+        class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black via-black/95 to-transparent pointer-events-none">
+    </div>
 
     <button (click)="iniciarRecorrido()"
         class="relative w-full py-4 text-base font-bold text-black bg-white rounded-full overflow-hidden shadow-[0_4px_30px_rgba(255,255,255,0.4)] focus:outline-none flex items-center justify-center gap-2 transition-transform active:scale-95">
-            Comenzar Exploración
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-            </svg>
+        Comenzar Exploración
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
     </button>
 </div>
 
