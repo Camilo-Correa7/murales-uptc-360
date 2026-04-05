@@ -24,6 +24,8 @@ export class Nav {
 
   @Output()ventanaCreditos = new EventEmitter<void>();
 
+  @Output()ventanaEvaluacion = new EventEmitter<void>();
+
   clicInicio(event: Event){
     event.preventDefault();
     this.volverInicio.emit();
@@ -37,5 +39,10 @@ export class Nav {
   clicVerCreditos(event: Event){
     event.preventDefault();
     this.ventanaCreditos.emit();
+  }
+
+  clicVerEvaluacion(event: Event){
+    event.preventDefault();
+    this.ventanaEvaluacion.emit();
   }
 }
