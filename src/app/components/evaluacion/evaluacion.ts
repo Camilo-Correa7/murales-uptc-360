@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { tick } from '@angular/core/testing';
 
 @Component({
   selector: 'app-evaluacion',
@@ -10,7 +11,20 @@ import { CommonModule } from '@angular/common';
 export class Evaluacion {
   
   @Output() cerrar = new EventEmitter<void>();
+  @Output() abrirGaleria = new EventEmitter<void>();
 
+  //Control 
+  faseActual: 'registro' | 'preguntas' | 'resultados' = 'registro';
+
+  ///Variable para el mensaje de error
+  messageError: string = '';
+
+  //Variables para el registro del usuario
+  nameUser: string = '';
+  exploracion: boolean | null = null;
+  score: number = 0;
+  envioDatos: boolean = false; // Mostrar un Cargando... 
+////////////////////////////////////////////////////////////////////
   preguntas = [
     //--- Mural 1: Lo que habita en la mente ---
     {
@@ -411,7 +425,6 @@ export class Evaluacion {
   hacerScrollArriba() {
     const contenedorScroll = document.getElementById('scroll-interno-eval');
     if (contenedorScroll) {
-      // Usamos setTimeout para asegurar que Angular ya renderizó la nueva pregunta
       setTimeout(() => {
         contenedorScroll.scrollTo({ top: 0, behavior: 'smooth' });
       }, 50);
@@ -429,6 +442,61 @@ export class Evaluacion {
       return "¡Buen intento! Has captado varios detalles interesantes, pero aún hay secretos por descubrir.";
     } else {
       return "¡Sigue explorando! Te invitamos a recorrer los murales nuevamente prestando atención a los detalles.";
+    }
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////
+  //Función para el botón de continuar
+  iniciarPrueba(nombre: string){
+    this.messageError = '';
+
+    if(!nombre || nombre.trim() === ''){
+      this.messageError = 'Por favor, ingresa tu nombre antes de continuar';
+      return;
+    }
+
+    if(this.exploracion === false){
+      this.cerrar.emit();
+      this.abrirGaleria.emit();
+      return;
+    }
+
+    if (this.exploracion === true) {
+      this.nameUser = nombre.trim();
+      this.faseActual = 'preguntas';
+    }
+  }
+
+//////////////////////////////////////////////////////////////////////////////////////
+  //Función que se llama cuando el usuario termina su última pregunta
+  finalizarEvaluacion(puntaje:number){
+    this.score = puntaje;
+    this.faseActual = 'resultados';
+    this.envioResultados(); 
+  }
+
+  //Cargue de resultados en la base de datos (Formspree)
+  async envioResultados(){
+    this.envioDatos = true;
+
+    const urlFormspree = 'https://formspree.io/f/xjgplgwn';
+
+    const datos = {
+      name: this.nameUser,
+      nota: this.score,
+      exploroTodo: this.exploracion ? 'Sí' : 'No',
+      date: new Date().toLocaleString()
+    };
+
+    try{
+      await fetch(urlFormspree, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(datos)
+      });
+      console.log('Datos guardados');
+    }finally{
+      this.envioDatos = false;
     }
   }
 }

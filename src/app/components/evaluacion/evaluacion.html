@@ -11,8 +11,52 @@
         </button>
 
         <div id="scroll-interno-eval" class="overflow-y-auto p-6 md:p-10 w-full scroll-smooth">
-            <ng-container *ngIf="!evaluacionTerminada">
 
+            @if (faseActual === 'registro') {
+            <div class="text-center py-4 animate-fade-in">
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-2 tracking-wide">Antes de comenzar...</h2>
+                <p class="text-gray-300 mb-8 text-lg">Necesitamos un par de datos para registrar tu puntaje.</p>
+
+                <div class="mb-8 text-left max-w-sm mx-auto">
+                    <label class="block text-sm font-medium text-emerald-400 mb-2">Nombre completo:</label>
+                    <input #nombreInput type="text" placeholder="Ej. Juan Pérez" (input)="messageError = ''"
+                        [class.border-red-500]="messageError"
+                        class="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 transition-colors shadow-inner">
+                    @if (messageError) {
+                    <p class="text-red-400 text-sm mt-2 font-medium animate-fade-in">
+                        {{ messageError }}
+                    </p>
+                    }
+
+                </div>
+
+                <div class="mb-10 max-w-sm mx-auto">
+                    <p class="block text-sm font-medium text-emerald-400 mb-3">¿Ya exploraste todos los murales de la
+                        galería?</p>
+                    <div class="flex gap-4 justify-center">
+                        <button (click)="exploracion = true"
+                            [ngClass]="exploracion === true ? 'bg-emerald-500/40 border-emerald-400 text-white shadow-[0_0_15px_rgba(16,185,129,0.3)]' : 'bg-white/5 border-white/20 text-gray-300 hover:bg-white/15 hover:text-white'"
+                            class="flex-1 px-4 py-3 border rounded-xl transition-all duration-300 font-medium">
+                            Sí, todos
+                        </button>
+
+                        <button (click)="exploracion = false"
+                            [ngClass]="exploracion === false ? 'bg-red-500/40 border-red-400 text-white shadow-[0_0_15px_rgba(239,68,68,0.3)]' : 'bg-white/5 border-white/20 text-gray-300 hover:bg-white/15 hover:text-white'"
+                            class="flex-1 px-4 py-3 border rounded-xl transition-all duration-300 font-medium">
+                            Aún no
+                        </button>
+                    </div>
+                </div>
+
+                <button (click)="iniciarPrueba(nombreInput.value)"
+                    class="px-10 py-3 bg-gradient-to-r from-emerald-400 to-blue-400 text-black font-bold rounded-full hover:scale-105 transition-transform shadow-lg text-lg">
+                    {{ exploracion === false ? 'Ir a explorar la galería' : 'Comenzar Evaluación' }}
+                </button>
+            </div>
+            }
+
+            @if (faseActual === 'preguntas') {
+            <div class="animate-fade-in">
                 <div class="w-full bg-white/10 rounded-full h-2 mb-6 mt-2">
                     <div class="bg-gradient-to-r from-blue-400 to-emerald-400 h-2 rounded-full transition-all duration-500 ease-out"
                         [style.width.%]="((preguntaActual + 1) / preguntas.length) * 100">
@@ -34,11 +78,12 @@
                 <div class="flex flex-col gap-3 mb-8">
                     <button *ngFor="let opcion of preguntas[preguntaActual].opciones; let i = index"
                         (click)="seleccionarOpcion(i)" [ngClass]="{
-            'bg-white/5 hover:bg-white/15 border-white/20 text-gray-300 hover:text-white hover:border-white/40': !mostrarResultado,
-            'border-emerald-500 bg-emerald-500/20 text-white shadow-[0_0_15px_rgba(16,185,129,0.3)]': mostrarResultado && i === preguntas[preguntaActual].respuestaCorrecta,
-            'border-red-500 bg-red-500/20 text-white': mostrarResultado && i === opcionSeleccionada && i !== preguntas[preguntaActual].respuestaCorrecta,
-            'opacity-40 cursor-not-allowed': mostrarResultado && i !== preguntas[preguntaActual].respuestaCorrecta && i !== opcionSeleccionada
-          }" class="text-left w-full p-4 md:p-5 rounded-2xl border transition-all duration-300 relative overflow-hidden group">
+                            'bg-white/5 hover:bg-white/15 border-white/20 text-gray-300 hover:text-white hover:border-white/40': !mostrarResultado,
+                            'border-emerald-500 bg-emerald-500/20 text-white shadow-[0_0_15px_rgba(16,185,129,0.3)]': mostrarResultado && i === preguntas[preguntaActual].respuestaCorrecta,
+                            'border-red-500 bg-red-500/20 text-white': mostrarResultado && i === opcionSeleccionada && i !== preguntas[preguntaActual].respuestaCorrecta,
+                            'opacity-40 cursor-not-allowed': mostrarResultado && i !== preguntas[preguntaActual].respuestaCorrecta && i !== opcionSeleccionada
+                        }"
+                        class="text-left w-full p-4 md:p-5 rounded-2xl border transition-all duration-300 relative overflow-hidden group">
 
                         <span class="relative z-10">{{ opcion }}</span>
 
@@ -46,8 +91,7 @@
                             class="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-400">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7">
-                                </path>
+                                    d="M5 13l4 4L19 7"></path>
                             </svg>
                         </span>
                         <span
@@ -67,43 +111,55 @@
                         {{ preguntaActual === preguntas.length - 1 ? 'Ver Resultados' : 'Siguiente Pregunta' }}
                     </button>
                 </div>
-            </ng-container>
+            </div>
+            }
 
-            <ng-container *ngIf="evaluacionTerminada">
-                <div class="text-center py-10 animate-fade-in">
-                    <div class="inline-block p-4 rounded-full bg-white/10 mb-6 border border-white/20">
-                        <svg class="w-16 h-16 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
-                            </path>
-                        </svg>
-                    </div>
-
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">¡Evaluación
-                        Completada!
-                    </h2>
-
-                    <div
-                        class="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 mb-6 drop-shadow-sm">
-                        {{ puntuacion }}<span class="text-4xl text-gray-400">/{{ preguntas.length }}</span>
-                    </div>
-
-                    <p class="text-lg text-gray-300 mb-10 max-w-md mx-auto leading-relaxed">
-                        {{ obtenerMensajeFinal() }}
-                    </p>
-
-                    <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <button (click)="reiniciarEvaluacion()"
-                            class="px-8 py-3 border-2 border-white/20 text-white rounded-full hover:bg-white/10 transition-colors font-semibold">
-                            Intentar de nuevo
-                        </button>
-                        <button (click)="cerrar.emit()"
-                            class="px-8 py-3 bg-white text-black rounded-full hover:scale-105 transition-transform font-bold shadow-xl">
-                            Volver al recorrido
-                        </button>
-                    </div>
+            @if (faseActual === 'resultados') {
+            <div class="text-center py-10 animate-fade-in">
+                <div class="inline-block p-4 rounded-full bg-white/10 mb-6 border border-white/20">
+                    <svg class="w-16 h-16 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+                        </path>
+                    </svg>
                 </div>
-            </ng-container>
+
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-2 tracking-tight">
+                    ¡Evaluación Completada!
+                </h2>
+
+                <p class="text-xl text-emerald-300 font-medium mb-4">{{ nameUser }}</p>
+
+                <div
+                    class="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 mb-6 drop-shadow-sm">
+                    {{ puntuacion }}<span class="text-4xl text-gray-400">/{{ preguntas.length }}</span>
+                </div>
+
+                <p class="text-lg text-gray-300 mb-6 max-w-md mx-auto leading-relaxed">
+                    {{ obtenerMensajeFinal() }}
+                </p>
+
+                <div class="mb-8">
+                    @if (envioDatos) {
+                    <p class="text-amber-400 text-sm animate-pulse">Guardando resultados...</p>
+                    } @else {
+                    <p class="text-emerald-400 text-sm">✅ Tus resultados han sido guardados exitosamente.</p>
+                    }
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button (click)="reiniciarEvaluacion()"
+                        class="px-8 py-3 border-2 border-white/20 text-white rounded-full hover:bg-white/10 transition-colors font-semibold">
+                        Intentar de nuevo
+                    </button>
+                    <button (click)="cerrar.emit()"
+                        class="px-8 py-3 bg-white text-black rounded-full hover:scale-105 transition-transform font-bold shadow-xl">
+                        Volver al recorrido
+                    </button>
+                </div>
+            </div>
+            }
+
         </div>
     </div>
 </div>

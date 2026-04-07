@@ -5,14 +5,13 @@ import { MuralViewer } from './components/mural-viewer/mural-viewer';
 import { MuralGallery } from './components/mural-gallery/mural-gallery';
 import { Mural } from './components/services/mural';
 import { MuralModels } from './components/models/mural.models';
-import { Footer } from './components/footer/footer';
 import { Evaluacion } from './components/evaluacion/evaluacion';
 
 
 
 @Component({
   selector: 'app-root',
-  imports: [ Nav, MuralInfo, MuralViewer,MuralGallery, Footer, Evaluacion],
+  imports: [ Nav, MuralInfo, MuralViewer,MuralGallery, Evaluacion],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -24,6 +23,7 @@ export class App implements OnInit {
   mostrarLanding: boolean = true; 
   iniciarRecorrido(){
     this.mostrarLanding = false;
+    this.mostrarGaleria = true;
   }
 ///////////////////////////////////////////////////
   mostrarInterfazInfo: boolean = true;
@@ -63,13 +63,21 @@ irLanding(){
   ventanaEvaluacion: boolean = false;
   abrirEvaluacion(){
     this.ventanaEvaluacion = true;
-    this.mostrarLanding = false; 
-    this.mostrarGaleria = false;
     this.mostrarCreditos = false;
+
+    if (this.mostrarLanding === true) {
+      this.mostrarLanding = false; 
+      this.mostrarGaleria = true;
+    }
   }
   cerrarEvaluacion(){
     this.ventanaEvaluacion = false;
   }
+///////////////////////////
+irGaleriaEvaluacion(){
+  this.ventanaEvaluacion = false; 
+  this.mostrarGaleria = true;
+}
 }
 
 
