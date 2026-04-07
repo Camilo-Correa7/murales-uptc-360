@@ -2,28 +2,29 @@
     <div
         class="w-full pointer-events-auto flex items-center justify-between px-4 md:px-10 z-50 max-w-7xl mx-auto relative">
 
-        <div class="flex-1 flex justify-start min-w-0">
+        <div class="flex justify-start z-10">
             <h1
                 class="font-semibold tracking-wide text-white drop-shadow-md flex items-center gap-1.5 md:gap-2 whitespace-nowrap">
-                <span class="text-lg md:text-2xl">Ataraxia</span>
-
+                <span class="text-lg md:text-xl lg:text-2xl">Ataraxia</span>
                 <span class="flex items-center gap-1.5 md:gap-2">
-                    <span class="text-red-600 text-lg md:text-2xl font-light">|</span>
-                    <span class="text-xs sm:text-sm md:text-2xl opacity-90 md:opacity-100">El Alma de los Murales</span>
+                    <span class="text-red-600 text-lg md:text-xl lg:text-2xl font-light">|</span>
+                    <span class="text-xs sm:text-sm md:text-base lg:text-xl opacity-90 md:opacity-100">El Alma de los
+                        Murales</span>
                 </span>
             </h1>
         </div>
 
-        <div class="hidden md:flex justify-center shrink-0">
-            <div class="flex items-center gap-4 md:gap-6 bg-black/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg">
+        <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-max">
+            <div
+                class="flex items-center gap-3 lg:gap-6 bg-black/90 backdrop-blur-sm rounded-full px-5 lg:px-6 py-2 lg:py-3 shadow-lg">
                 <a href="#" (click)="clicInicio($event)"
-                    class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Inicio</a>
+                    class="text-xs lg:text-sm font-medium text-gray-300 hover:text-white transition-colors">Inicio</a>
                 <a href="#" (click)="clicVerEvaluacion($event)"
-                    class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Evaluación</a>
+                    class="text-xs lg:text-sm font-medium text-gray-300 hover:text-white transition-colors">Evaluación</a>
                 <a href="#" (click)="clicVerCreditos($event)"
-                    class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Créditos</a>
+                    class="text-xs lg:text-sm font-medium text-gray-300 hover:text-white transition-colors">Créditos</a>
                 <a href="https://forms.gle/AvsrVP8S3E8AM2va9" target="_blank" rel="noopener noreferrer"
-                    class="flex items-center gap-2 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors border border-emerald-500/30 px-4 py-1.5 rounded-full bg-emerald-500/10">
+                    class="flex items-center gap-2 text-xs lg:text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors border border-emerald-500/30 px-3 lg:px-4 py-1.5 rounded-full bg-emerald-500/10">
                     Déjanos tus sugerencias
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -34,10 +35,10 @@
             </div>
         </div>
 
-        <div class="flex-1 flex items-center justify-end gap-4 shrink-0">
+        <div class="flex items-center justify-end gap-4 z-10">
             @if (mostrarBotonGaleria) {
             <a href="#" (click)="clicVerGaleria($event)"
-                class="hidden md:flex items-center gap-2 px-8 py-2.5 bg-black/30 backdrop-blur-md hover:bg-white/20 border border-white/20 rounded-full text-sm font-medium text-white transition-all shadow-lg">
+                class="hidden md:flex items-center gap-2 px-6 lg:px-8 py-2 lg:py-2.5 bg-black/30 backdrop-blur-md hover:bg-white/20 border border-white/20 rounded-full text-xs lg:text-sm font-medium text-white transition-all shadow-lg">
                 Ver Galería
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
