@@ -411,7 +411,7 @@ export class Evaluacion {
       this.mostrarResultado = false;
       this.hacerScrollArriba();
     } else {
-      this.evaluacionTerminada = true;
+      this.finalizarEvaluacion(this.puntuacion);
     }
   }
 
@@ -421,6 +421,7 @@ export class Evaluacion {
     this.evaluacionTerminada = false;
     this.opcionSeleccionada = null;
     this.mostrarResultado = false;
+    this.faseActual = 'preguntas';
   }
   hacerScrollArriba() {
     const contenedorScroll = document.getElementById('scroll-interno-eval');
