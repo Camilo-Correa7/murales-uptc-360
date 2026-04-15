@@ -85,20 +85,20 @@
 
 } @else {
 
-<main class="absolute inset-0 w-full h-full z-10">
-    <app-mural-viewer [idMural]="muralActual?.id || 1" class="w-full h-full block"></app-mural-viewer>
-</main>
+    <main class="absolute inset-0 w-full h-full z-10">
+        <app-mural-viewer [idMural]="muralActual?.id || 1" (muralCambiado)="muralActual = $event; mostrarInterfazInfo = true" class="w-full h-full block"></app-mural-viewer>
+    </main>
 
-<div class="absolute inset-0 z-20 pointer-events-none flex flex-col p-4 md:p-8 pt-24 md:pt-28 pb-4 md:pb-6 transition-opacity duration-500 ease-in-out"
-    [class.opacity-0]="!mostrarInterfazInfo" [class.invisible]="!mostrarInterfazInfo">
+    <div class="absolute inset-0 z-20 pointer-events-none flex flex-col p-4 md:p-8 pt-24 md:pt-28 pb-4 md:pb-6 transition-opacity duration-500 ease-in-out"
+        [class.opacity-0]="!mostrarInterfazInfo" [class.invisible]="!mostrarInterfazInfo">
 
-    <div class="flex-1 flex items-center justify-start min-h-0 w-full">
-        <div
-            class="pointer-events-auto w-full md:w-[420px] max-h-full flex flex-col bg-black/60 backdrop-blur-md border border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all hover:bg-black/70">
-            <app-mural-info [muralActual]="muralActual" class="block overflow-y-auto custom-scrollbar"></app-mural-info>
+        <div class="flex-1 flex items-center justify-start min-h-0 w-full">
+            <div
+                class="pointer-events-auto w-full md:w-[420px] max-h-full flex flex-col bg-black/60 backdrop-blur-md border border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all hover:bg-black/70">
+                <app-mural-info [muralActual]="muralActual" class="block overflow-y-auto custom-scrollbar"></app-mural-info>
+            </div>
         </div>
     </div>
-</div>
 
 <div class="fixed inset-0 z-[999] flex flex-col items-center justify-center bg-black/85 backdrop-blur-2xl transition-all duration-500 ease-in-out px-4 py-12 md:p-12 overflow-hidden w-full h-full"
     [class.opacity-0]="!mostrarGaleria" [class.pointer-events-none]="!mostrarGaleria"
@@ -117,12 +117,25 @@
             class="text-white/60 text-xs font-bold tracking-widest uppercase mt-2 group-hover:text-red-400 transition-colors">Cerrar</span>
     </button>
 
+    <div class="bg-blue-900/40 border border-blue-500/50 rounded-lg p-3 mb-5 shadow-inner">
+  <div class="flex items-center gap-2 mb-1.5">
+    <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+    </svg>
+    <h3 class="text-blue-300 font-bold text-base">¡Un pequeño reto para ti!</h3>
+  </div>
+  <p class="text-gray-200 text-sm leading-snug text-justify">
+    Observa bien los colores, emociones y detalles de cada obra durante tu recorrido. Al finalizar, te invitaremos a responder un breve cuestionario sobre tus descubrimientos.
+  </p>
+</div>
     <div class="text-center mb-8 md:mb-12 w-full max-w-7xl transition-transform duration-700 delay-100"
         [class.-translate-y-10]="!mostrarGaleria" [class.translate-y-0]="mostrarGaleria">
         <h2 class="text-white text-4xl md:text-6xl font-bold tracking-tight mb-4 drop-shadow-2xl">Colección de Murales
         </h2>
         <p class="text-gray-300 text-lg md:text-xl font-light">Selecciona una obra para iniciar la inmersión</p>
     </div>
+    
 
     <div class="w-full max-w-7xl h-full max-h-[70vh] overflow-y-auto overflow-x-hidden transition-transform duration-700 delay-200 pb-10 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         [class.translate-y-10]="!mostrarGaleria" [class.translate-y-0]="mostrarGaleria">

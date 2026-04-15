@@ -14,6 +14,20 @@
     </span>
   </div>
 
+  <button title="Mural Anterior" (click)="irAAnterior()"
+    class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-50 flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-black/40 hover:bg-white/20 backdrop-blur-md border border-white/20 rounded-full text-white transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)] focus:outline-none hover:scale-110">
+    <svg class="w-6 h-6 md:w-8 md:h-8 ml-[-2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+    </svg>
+  </button>
+
+  <button title="Mural Siguiente" (click)="irASiguiente()"
+    class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-black/40 hover:bg-white/20 backdrop-blur-md border border-white/20 rounded-full text-white transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)] focus:outline-none hover:scale-110">
+    <svg class="w-6 h-6 md:w-8 md:h-8 mr-[-2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+    </svg>
+  </button>
+
   <div
     class="absolute inset-0 z-[950] flex flex-col items-center justify-center bg-gray-900/95 backdrop-blur-md transition-opacity duration-700 ease-in-out"
     [class.opacity-0]="!cargandoMural" [class.pointer-events-none]="!cargandoMural" [class.opacity-100]="cargandoMural"

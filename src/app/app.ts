@@ -11,7 +11,7 @@ import { Evaluacion } from './components/evaluacion/evaluacion';
 
 @Component({
   selector: 'app-root',
-  imports: [ Nav, MuralInfo, MuralViewer,MuralGallery, Evaluacion],
+  imports: [Nav, MuralInfo, MuralViewer, MuralGallery, Evaluacion],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -20,21 +20,21 @@ export class App implements OnInit {
 
   private muralService = inject(Mural);
 
-  mostrarLanding: boolean = true; 
-  iniciarRecorrido(){
+  mostrarLanding: boolean = true;
+  iniciarRecorrido() {
     this.mostrarLanding = false;
     this.mostrarGaleria = true;
   }
-///////////////////////////////////////////////////
+  ///////////////////////////////////////////////////
   mostrarInterfazInfo: boolean = true;
-  toggleInterfaz(){
-    this.mostrarInterfazInfo = !this.mostrarInterfazInfo; 
+  toggleInterfaz() {
+    this.mostrarInterfazInfo = !this.mostrarInterfazInfo;
   }
-/////////////////////////////////////////
-irLanding(){
-  this.mostrarLanding = true;
-}
-/////////////////////////////////////////
+  /////////////////////////////////////////
+  irLanding() {
+    this.mostrarLanding = true;
+  }
+  /////////////////////////////////////////
   murales: MuralModels[] = [];
   muralActual?: MuralModels;
 
@@ -43,16 +43,16 @@ irLanding(){
     this.muralActual = this.murales[0]
   }
 
-  cambiarMuralActual (mural: any){
+  cambiarMuralActual(mural: any) {
     this.muralActual = mural;
     this.mostrarGaleria = false;
     this.cargandoMural = true;
   }
   /////////////////////////////////////////////////////
-  mostrarGaleria:boolean = false;
+  mostrarGaleria: boolean = false;
 
-  toogleGaleria(){
-    this.mostrarGaleria =!this.mostrarGaleria;
+  toogleGaleria() {
+    this.mostrarGaleria = !this.mostrarGaleria;
   }
   ///////////////////////////////////////////////////////
   mostrarCreditos: boolean = false;
@@ -61,23 +61,23 @@ irLanding(){
 
   /////////////////////////////////////////////////////////
   ventanaEvaluacion: boolean = false;
-  abrirEvaluacion(){
+  abrirEvaluacion() {
     this.ventanaEvaluacion = true;
     this.mostrarCreditos = false;
 
     if (this.mostrarLanding === true) {
-      this.mostrarLanding = false; 
+      this.mostrarLanding = false;
       this.mostrarGaleria = true;
     }
   }
-  cerrarEvaluacion(){
+  cerrarEvaluacion() {
     this.ventanaEvaluacion = false;
   }
-///////////////////////////
-irGaleriaEvaluacion(){
-  this.ventanaEvaluacion = false; 
-  this.mostrarGaleria = true;
-}
+  ///////////////////////////
+  irGaleriaEvaluacion() {
+    this.ventanaEvaluacion = false;
+    this.mostrarGaleria = true;
+  }
 }
 
 

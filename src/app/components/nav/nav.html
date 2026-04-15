@@ -1,10 +1,10 @@
 <nav class="fixed top-0 left-0 w-full z-[1000] px-4 md:px-8 py-4 md:py-6 pointer-events-none backdrop-blur-md">
     <div
-        class="w-full pointer-events-auto flex items-center justify-between px-4 md:px-10 z-50 max-w-7xl mx-auto relative">
+        class="w-full pointer-events-auto flex items-center justify-between px-4 md:px-10 z-50 max-w-7xl mx-auto relative gap-3">
 
-        <div class="flex justify-start z-10">
+        <div class="flex justify-start z-10 gap-3">
             <h1
-                class="font-semibold tracking-wide text-white drop-shadow-md flex items-center gap-1.5 md:gap-2 whitespace-nowrap">
+                class="font-semibold tracking-wide text-white drop-shadow-md flex items-center gap-4 md:gap-0.5 whitespace-nowrap">
                 <span class="text-lg md:text-xl lg:text-2xl">Ataraxia</span>
                 <span class="flex items-center gap-1.5 md:gap-2">
                     <span class="text-red-600 text-lg md:text-xl lg:text-2xl font-light">|</span>
@@ -16,11 +16,31 @@
 
         <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-max">
             <div
-                class="flex items-center gap-3 lg:gap-6 bg-black/90 backdrop-blur-sm rounded-full px-5 lg:px-6 py-2 lg:py-3 shadow-lg">
+                class="flex items-center gap-4 lg:gap-6 bg-black/90 backdrop-blur-sm rounded-full px-5 lg:px-6 py-2 lg:py-3 shadow-lg">
                 <a href="#" (click)="clicInicio($event)"
                     class="text-xs lg:text-sm font-medium text-gray-300 hover:text-white transition-colors">Inicio</a>
+
+                @if (!desbloqueado) {
+                <span class="flex items-center gap-1.5 text-xs lg:text-sm font-medium text-gray-500 cursor-not-allowed"
+                    title="Explora los {{totalMurales}} murales para desbloquear">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                        </path>
+                    </svg>
+                    Evaluación ({{muralesVistos}}/{{totalMurales}})
+                </span>
+                } @else {
                 <a href="#" (click)="clicVerEvaluacion($event)"
-                    class="text-xs lg:text-sm font-medium text-gray-300 hover:text-white transition-colors">Evaluación</a>
+                    class="flex items-center gap-1.5 text-xs lg:text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors drop-shadow-[0_0_5px_rgba(52,211,153,0.4)]">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    ¡Evaluación!
+                </a>
+                }
+
                 <a href="#" (click)="clicVerCreditos($event)"
                     class="text-xs lg:text-sm font-medium text-gray-300 hover:text-white transition-colors">Créditos</a>
                 <a href="https://forms.gle/AvsrVP8S3E8AM2va9" target="_blank" rel="noopener noreferrer"
@@ -67,8 +87,28 @@
         class="pointer-events-auto absolute top-[70px] left-4 right-4 bg-black/90 backdrop-blur-xl border border-white/10 rounded-2xl p-4 md:hidden flex flex-col gap-2 shadow-2xl animate-[fadeIn_0.2s_ease-out]">
         <a href="#" (click)="clicInicio($event); cerrarMenu()"
             class="text-white text-base font-medium p-3 rounded-xl hover:bg-white/10 transition-colors">Inicio</a>
+
+        @if (!desbloqueado) {
+        <span
+            class="flex items-center gap-2 text-gray-500 text-base font-medium p-3 rounded-xl cursor-not-allowed bg-white/5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                </path>
+            </svg>
+            Evaluación ({{muralesVistos}}/{{totalMurales}})
+        </span>
+        } @else {
         <a href="#" (click)="clicVerEvaluacion($event); cerrarMenu()"
-            class="text-white text-base font-medium p-3 rounded-xl hover:bg-white/10 transition-colors">Evaluación</a>
+            class="flex items-center gap-2 text-emerald-400 text-base font-bold p-3 rounded-xl hover:bg-white/10 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            ¡Hacer Evaluación!
+        </a>
+        }
+
         <a href="#" (click)="clicVerCreditos($event); cerrarMenu()"
             class="text-white text-base font-medium p-3 rounded-xl hover:bg-white/10 transition-colors">Créditos</a>
         <a href="https://forms.gle/AvsrVP8S3E8AM2va9" target="_blank" rel="noopener noreferrer"
