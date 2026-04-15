@@ -168,7 +168,7 @@ export class MuralViewer implements AfterViewInit, OnDestroy, OnChanges, OnInit 
   actualizarMarcadores(idMuralSeleccionado: number) {
     this.markersPlugin.clearMarkers();
 
-    if (idMuralSeleccionado === 1) {
+  /*  if (idMuralSeleccionado === 1) {
       this.markersPlugin.addMarker({
         id: 'm1-detalle1',
         position: { yaw: '30deg', pitch: '15deg' },
@@ -190,7 +190,7 @@ export class MuralViewer implements AfterViewInit, OnDestroy, OnChanges, OnInit 
           descripcion: 'El autor decidió esconder su firma en esta esquina inferior, integrándola con la textura de la pared para no interrumpir la composición principal de la obra.'
         }
       });
-    }
+    } */
   }
 
   ngOnDestroy(): void {

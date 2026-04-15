@@ -168,6 +168,27 @@ export class Mural {
       descripcion: 'La escena parece transcurrir en un baño o espacio íntimo con paredes de azulejos. Una mujer joven de cabello oscuro mira atentamente su teléfono móvil. Lleva una camiseta roja con la palabra "FREEDOMS" escrita al revés (se lee como en un espejo: S M O D E E R F).',
       imagen360Url: 'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1775149908/13_mp2hxb.jpg',
     },
+    {
+      id: 17,
+      titulo: 'Tomas Herrera Cantillo',
+      autor: 'Anónimo',
+      fecha: 'Fecha de la fotografía 360° - 25 de marzo de 2026',
+      tecnica: 'Fotografía 360° de monumento en concreto con intervención urbana (grafiti en aerosol)',
+      ubicacion: 'Entrada principal cerca al puenta UPTC - Tunja',
+      descripcion: 'La imagen muestra un monumento de base piramidal truncada pintado de rojo, situado sobre un camino de ladrillo y rodeado de amplias zonas verdes. La estructura principal ha sido fuertemente intervenida con aerosol negro, destacando símbolos de anarquía y la consigna "ACAB", reflejando una expresión de protesta o descontento social.',
+      imagen360Url: 'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1776257305/17_yfufqa.jpg',
+    },
+    {
+      id: 18,
+      titulo: 'Goranchacha',
+      autor: 'Anónimo',
+      fecha: 'Fecha de la fotografía 360° - 25 de marzo de 2026',
+      tecnica: 'Fotografía 360° de escultura',
+      ubicacion: 'Muro parte central de la UPTC - Tunja',
+      descripcion: 'La obra presenta una figura masculina, desnuda y de complexión musculosa, en una postura dinámica: el personaje avanza mientras señala decididamente hacia el frente y arriba con su brazo izquierdo. El rasgo más distintivo de la escultura es su cabeza, moldeada con formas puntiagudas que asemejan los rayos de un sol.',
+      imagen360Url: 'https://res.cloudinary.com/dtluhequn/image/upload/q_auto/f_auto/v1776257305/18_czkzyu.jpg',
+    },
+   
   ];
 
   constructor() { }
@@ -185,7 +206,7 @@ export class Mural {
   private muralesVistos = new Set<number>();
   progreso$ = new BehaviorSubject<number>(0);
 
-  totalMurales = 16;
+  totalMurales = 18;
 
 
   marcarMuralComoVisto(idMural: number) {

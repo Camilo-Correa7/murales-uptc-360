@@ -49,7 +49,7 @@ export class Nav implements OnInit {
 
 
   muralesVistos: number = 0;
-  totalMurales: number = 16;
+  totalMurales: number = 18;
   desbloqueado: boolean = false;
 
   constructor(private muralService: Mural) { }
@@ -59,9 +59,7 @@ export class Nav implements OnInit {
       this.muralesVistos = cantidad;
       this.desbloqueado = cantidad >= this.totalMurales;
 
-      if (cantidad >= 16) {
-        // Usamos un pequeño delay para que el usuario vea que llegó al 16/16 
-        // antes de que aparezca el cuadro
+      if (cantidad >= 18) {
         setTimeout(() => {
           this.abrirEvaluacion();
         }, 1000);
